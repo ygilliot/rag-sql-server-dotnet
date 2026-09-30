@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/RagSqlServer/RagSqlServer.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/RagSqlServer.Console/RagSqlServer.Console.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RagSqlServer.Tests/RagSqlServer.Tests.csproj" />
+  </Folder>
+  <Folder Name="/guides/">
+    <Project Path="guides/semantic-kernel-to-agent-framework/SkToAgentFramework.csproj" />
+  </Folder>
+</Solution>

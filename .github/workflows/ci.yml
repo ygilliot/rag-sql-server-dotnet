@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    services:
+      sql:
+        image: mcr.microsoft.com/mssql/server:2025-latest
+        env:
+          ACCEPT_EULA: "Y"
+          MSSQL_SA_PASSWORD: "Rag_Ci_2025!"
+          MSSQL_PID: "Developer"
+        ports:
+          - 1433:1433
+
+    env:
+      RAG_SQL_CONNECTION_STRING: "Server=localhost,1433;Database=master;User Id=sa;Password=Rag_Ci_2025!;TrustServerCertificate=True"
+      DOTNET_NOLOGO: "true"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore RagSqlServer.slnx
+
+      - name: Build
+        run: dotnet build RagSqlServer.slnx --no-restore --configuration Release
+
+      - name: Test (unit and SQL Server 2025 integration)
+        run: dotnet test RagSqlServer.slnx --no-build --configuration Release --logger "console;verbosity=normal"
+
+      - name: Sample, offline mode
+        run: |
+          dotnet run --project samples/RagSqlServer.Console --no-build --configuration Release -- "What is the hotel ceiling in Paris?" --role Employee
+          dotnet run --project samples/RagSqlServer.Console --no-build --configuration Release -- "salary range per band" --role Employee
+          dotnet run --project samples/RagSqlServer.Console --no-build --configuration Release -- "salary range per band" --role HR
+        env:
+          RAG_SQL_CONNECTION_STRING: "Server=localhost,1433;Database=RagSample;User Id=sa;Password=Rag_Ci_2025!;TrustServerCertificate=True"

@@ -19,7 +19,13 @@ public static class SchemaInstaller
         await using var connection = new SqlConnection(builder.ConnectionString);
         await connection.OpenAsync(cancellationToken);
         await using var command = new SqlCommand(
-            "IF DB_ID(@name) IS NULL EXEC(N'CREATE DATABASE ' + QUOTENAME(@name));", connection);
+            """
+            IF DB_ID(@name) IS NULL
+            BEGIN
+                DECLARE @sql NVARCHAR(300) = N'CREATE DATABASE ' + QUOTENAME(@name);
+                EXEC (@sql);
+            END;
+            """, connection);
         command.Parameters.AddWithValue("@name", database);
         await command.ExecuteNonQueryAsync(cancellationToken);
     }

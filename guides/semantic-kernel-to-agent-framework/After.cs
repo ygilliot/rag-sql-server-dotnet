@@ -5,6 +5,7 @@ using Azure.Core;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.DependencyInjection;
+using OpenAI.Chat; // AsAIAgent on the OpenAI ChatClient (package Microsoft.Agents.AI.OpenAI)
 
 namespace SkToAgentFramework.After;
 

@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\RagSqlServer\RagSqlServer.csproj" />
   </ItemGroup>
 

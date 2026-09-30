@@ -39,7 +39,7 @@ jobs:
         run: dotnet build RagSqlServer.slnx --no-restore --configuration Release
 
       - name: Test (unit and SQL Server 2025 integration)
-        run: dotnet test RagSqlServer.slnx --no-build --configuration Release --logger "console;verbosity=normal"
+        run: dotnet test --solution RagSqlServer.slnx --no-build --configuration Release --output Detailed
 
       - name: Sample, offline mode
         run: |

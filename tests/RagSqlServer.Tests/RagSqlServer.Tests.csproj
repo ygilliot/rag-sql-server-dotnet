@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\RagSqlServer\RagSqlServer.csproj" />
+    <ProjectReference Include="..\..\guides\ai-in-existing-dotnet-app\AiInExistingApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

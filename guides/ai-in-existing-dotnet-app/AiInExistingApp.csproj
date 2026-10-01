@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Code of the guide "Integrating AI into an existing .NET application"
+    (https://gilabs.fr/en/guides/integrer-ia-application-dotnet/). The snippets published in
+    the guide are copied verbatim from these files; CI builds them and the test project runs
+    them against a scripted chat client, so no API key is needed.
+  -->
+
+  <PropertyGroup>
+    <RootNamespace>AiInExistingApp</RootNamespace>
+    <!-- Agent Framework and Microsoft.Extensions.AI flag some APIs as experimental. -->
+    <NoWarn>$(NoWarn);MAAI001;MEAI001;OPENAI001</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.AI" />
+    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" />
+    <PackageReference Include="Microsoft.Agents.AI" />
+    <PackageReference Include="Azure.AI.OpenAI" />
+    <PackageReference Include="Azure.Identity" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" />
+  </ItemGroup>
+
+</Project>

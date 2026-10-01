@@ -10,5 +10,6 @@
   </Folder>
   <Folder Name="/guides/">
     <Project Path="guides/semantic-kernel-to-agent-framework/SkToAgentFramework.csproj" />
+    <Project Path="guides/ai-in-existing-dotnet-app/AiInExistingApp.csproj" />
   </Folder>
 </Solution>

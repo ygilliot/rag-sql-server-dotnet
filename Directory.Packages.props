@@ -14,6 +14,7 @@
     <PackageVersion Include="Azure.AI.OpenAI" Version="2.9.0-beta.1" />
     <PackageVersion Include="Azure.Identity" Version="1.21.0" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.12" />
     <!-- Only for the "before" half of the Semantic Kernel migration snippets. -->
     <PackageVersion Include="Microsoft.SemanticKernel" Version="1.80.1" />
     <PackageVersion Include="Microsoft.SemanticKernel.Agents.Core" Version="1.80.1" />

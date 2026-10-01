@@ -61,6 +61,7 @@ override the defaults (`gpt-5-mini`, `text-embedding-3-small`).
 | `src/RagSqlServer/Embeddings` | `HashingEmbeddingGenerator`: offline embeddings for tests and CI, not semantic |
 | `tests/` | Chunker tests, and integration tests against SQL Server 2025, including what reaches the model |
 | `guides/semantic-kernel-to-agent-framework` | Compile check of the code published in the guide [Semantic Kernel or Microsoft Agent Framework](https://gilabs.fr/en/guides/semantic-kernel-agent-framework/) |
+| `guides/ai-in-existing-dotnet-app` | Code of the guide [Integrating AI into an existing .NET application](https://gilabs.fr/en/guides/integrer-ia-application-dotnet/): structured output with deterministic checks, tools over existing services, a write tool behind approval, background triage. Tested against a scripted chat client |
 
 ## SQL Server 2025 vector features, as of September 2026
 
